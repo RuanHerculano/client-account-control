@@ -9,7 +9,6 @@ angular.module('client-account-control').controller('IndividualEntityController'
 		    method: 'PUT',
 		    url: url + '/' + $scope.individualEntity.id + responseExtension,
 		    data: $scope.individualEntity,
-		  	headers: headers
 		})
 		.success(function(response) {
 			$scope.individualEntity = {};

@@ -5,17 +5,17 @@ angular.module('client-account-control', ['ngRoute'])
 	$routeProvider.otherwise({ redirectTo: 'individual_entities'});
 
 	$routeProvider.when('/individual_entities', {
-		templateUrl: 'partials/individual_entities/index.html',
+		templateUrl: 'partials/individual-entities/index.html',
 		controller: 'IndividualEntitiesController'
 	});
 
 	$routeProvider.when('/individual_entities/new', {
-		templateUrl: 'partials/individual_entities/new.html',
+		templateUrl: 'partials/individual-entities/new.html',
 		controller: 'IndividualEntityController'
 	});
 
-	$routeProvider.when('/individual_entitiess/edit/:individualEntityId', {
-		templateUrl: 'partials/individual_entities/new.html',
+	$routeProvider.when('/individual_entities/edit/:individualEntityId', {
+		templateUrl: 'partials/individual-entities/new.html',
 		controller: 'IndividualEntityController'
 	});
 });
