@@ -1,0 +1,45 @@
+<div class="page-header text-center">
+    <h1>CRIAR NOVA PESSOA JURÍDICA</h1>
+</div>
+
+<p ng-show="message.length" class="alert alert-info">{{message}}</p>
+
+<form novalidate name="formulary" class="row" ng-submit="submit()">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>CNPJ</label>
+            <input ng-model="corporateEntity.cnpj" name="cnpj" class="form-control" required>
+            <span ng-show="formulary.$submitted && formulary.cnpj.$error.required"  class="form-control alert-danger">
+                CNPJ é Obrigatório
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label>Razão social</label>
+            <input ng-model="corporateEntity.business" name="business" class="form-control" required ng-maxlength="100">
+            <span ng-show="formulary.$submitted && formulary.business.$error.required" class="form-control alert-danger">
+                Razão social é obrigatória
+            </span>
+            <span ng-show="formulary.$submitted && formulary.business.$error.maxlength"  class="form-control alert-danger">
+                Razão social pode ter no máximo 100 caractéres
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label>Nome fantasia</label>
+            <input ng-model="corporateEntity.trading_name" name="trading_name" class="form-control" required ng-maxlength="100">
+            <span ng-show="formulary.$submitted && formulary.trading_name.$error.required" class="form-control alert-danger">
+                Nome fantasia é obrigatório
+            </span>
+            <span ng-show="formulary.$submitted && formulary.trading_name.$error.maxlength"  class="form-control alert-danger">
+                Nome completo pode ter no máximo 100 caractéres
+            </span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Salvar
+        </button>
+         <a href="/corporate_entities" class="btn btn-primary">Voltar</a>
+        <hr>
+    </div>
+</form>

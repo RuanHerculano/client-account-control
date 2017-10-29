@@ -15,6 +15,11 @@ angular.module('client-account-control', ['ngRoute'])
 		controller: 'CorporateEntitiesController'
 	});
 
+	$routeProvider.when('/corporate_entities/new', {
+		templateUrl: 'partials/corporate-entities/new.html',
+		controller: 'CorporateEntityController'
+	});
+
 	////////////////////////////////////////////////////
 	$routeProvider.when('/individual_entities', {
 		templateUrl: 'partials/individual-entities/index.html',

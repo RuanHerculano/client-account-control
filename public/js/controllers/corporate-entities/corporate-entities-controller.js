@@ -20,10 +20,10 @@ angular.module('client-account-control').controller('CorporateEntitiesController
     .success(function(response) {
       var corporateEntityIndex = $scope.corporateEntities.indexOf(corporateEntity);
       $scope.corporateEntities.splice(corporateEntityIndex, 1);
-      $scope.message = 'Pessoa Física portadora do CNPJ ' + corporateEntity.cnpj +' foi removida com sucesso!';
+      $scope.message = 'Pessoa Jurídica portadora do CNPJ ' + corporateEntity.cnpj +' foi removida com sucesso!';
     })
     .error(function(error) {
-      $scope.message = 'Não foi possível remover Pessoa Física portadora do CNPJ ' + corporateEntity.cnpj;
+      $scope.message = 'Não foi possível remover Pessoa Jurídica portadora do CNPJ ' + corporateEntity.cnpj;
     });
   };
 
