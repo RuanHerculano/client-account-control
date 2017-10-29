@@ -8,7 +8,6 @@ angular.module('client-account-control', ['ngRoute'])
 		templateUrl: 'partials/home/home.html',
 		controller: 'HomeController'
 	});
-	////////////////////////////////////////////////////
 
 	$routeProvider.when('/corporate_entities', {
 		templateUrl: 'partials/corporate-entities/index.html',
@@ -20,7 +19,11 @@ angular.module('client-account-control', ['ngRoute'])
 		controller: 'CorporateEntityController'
 	});
 
-	////////////////////////////////////////////////////
+	$routeProvider.when('/corporate_entities/edit/:corporateEntityId', {
+		templateUrl: 'partials/individual-entities/new.html',
+		controller: 'CorporateEntityController'
+	});
+
 	$routeProvider.when('/individual_entities', {
 		templateUrl: 'partials/individual-entities/index.html',
 		controller: 'IndividualEntitiesController'

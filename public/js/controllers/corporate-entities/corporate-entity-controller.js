@@ -15,20 +15,20 @@ angular.module('client-account-control').controller('CorporateEntityController',
   //   });
   // };
 
-  // function update() {
-  //   $http({
-  //       method: 'PUT',
-  //       url: url + '/' + $scope.corporateEntity.id + responseExtension,
-  //       data: $scope.corporateEntity,
-  //   })
-  //   .success(function(response) {
-  //     $scope.corporateEntity = {};
-  //     $scope.message = 'Pessoa Jurídica Atualizada com sucesso!';
-  //   })
-  //   .error(function(error) {
-  //     $scope.message = 'Não foi possível cadastrar o Pessoa Jurídica';
-  //   });
-  // };
+  function update() {
+    $http({
+        method: 'PUT',
+        url: url + '/' + $scope.corporateEntity.id + responseExtension,
+        data: $scope.corporateEntity,
+    })
+    .success(function(response) {
+      $scope.corporateEntity = {};
+      $scope.message = 'Pessoa Jurídica Atualizada com sucesso!';
+    })
+    .error(function(error) {
+      $scope.message = 'Não foi possível cadastrar o Pessoa Jurídica';
+    });
+  };
 
   function create() {
     console.log('valor que está sendo mandado');
