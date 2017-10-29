@@ -1,0 +1,45 @@
+<div class="page-header text-center">
+    <h1>CRIAR NOVA PESSOA FÍSICA</h1>
+</div>
+
+<p ng-show="message.length" class="alert alert-info">{{message}}</p>
+
+<form novalidate name="formulary" class="row" ng-submit="submit()">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>CPF</label>
+            <input ng-model="individualEntity.cpf" name="cpf" class="form-control" required>
+            <span ng-show="formulary.$submitted && formulary.cpf.$error.required"  class="form-control alert-danger">
+                CPF é Obrigatório
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label>Nome completo</label>
+            <input ng-model="individualEntity.full_name" name="full_name" class="form-control" required ng-maxlength="100">
+            <span ng-show="formulary.$submitted && formulary.full_name.$error.required" class="form-control alert-danger">
+                Nome completo é obrigatório
+            </span>
+            <span ng-show="formulary.$submitted && formulary.full_name.$error.maxlength"  class="form-control alert-danger">
+                Nome completo pode ter no máximo 100 caractéres
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label>Data de nascimento</label>
+            <input  type="date" ng-model="individualEntity.date_birth" name="date_birth" class="form-control" >
+            <!-- <textarea  ng-model="book.body" name="body" class="form-control" required ng-maxlength="290">
+            </textarea> -->
+            <span ng-show="formulary.$submitted && formulary.body.$error.required" class="form-control alert-danger">
+                Date de nascimento é obrigatória
+            </span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Salvar
+        </button>
+         <a href="/individual_entities" class="btn btn-primary">Voltar</a>
+        <hr>
+    </div>
+</form>
+

@@ -1,0 +1,32 @@
+<div class="jumbotron">
+    <h1 class="text-center">Books</h1>
+</div>
+
+<p class="alert alert-info" ng-show="message.length">
+    {{message}}
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>CPF</th>
+            <th>Nome Completo</th>
+            <th>date_birth</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="individualEntity in individualEntities">
+        <tr>
+            <td>{{individualEntity.cpf}}</td>
+            <td>{{individualEntity.full_name}}</td>
+            <td>{{individualEntity.date_birth}}</td>
+            <td>
+                <a href="individualEntities/edit/{{individualEntity.id}}" class="btn btn-primary btn-block">Editar</a>
+            </td>
+            <td>
+                <button ng-click="destroy(individualEntity)" class="btn btn-danger">Excluir</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<a class="button" href="individual-entities/new">Novo</a>
