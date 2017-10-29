@@ -21,7 +21,7 @@ angular.module('client-account-control').controller('IndividualEntitiesControlle
 		.success(function(response) {
 			var individualEntityIndex = $scope.individualEntities.indexOf(individualEntity);
 			$scope.individualEntities.splice(individualEntityIndex, 1);
-			$scope.message = 'Livro '+ individualEntity.cpf +' removido com sucesso!';
+			$scope.message = 'Pessoa Física portadora do CPF ' + individualEntity.cpf +' foi removida com sucesso!';
 		})
 		.error(function(error) {
 			$scope.message = 'Não foi possível remover Pessoa Física portadora do CPF ' + individualEntity.cpf;

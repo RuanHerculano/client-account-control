@@ -12,9 +12,23 @@
         <script src="js/main.js"></script>
         <script src="js/controllers/individual-entities/individual-entities-controller.js"></script>
         <script src="js/controllers/individual-entities/individual-entity-controller.js"></script>
+        <script src="js/controllers/corporate-entities/corporate-entities-controller.js"></script>
     </head>
     <body>
         <div>
+            <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="#">Controle de Contas</a>
+                </div>
+                <ul class="nav navbar-nav">
+                  <!-- class="active" -->
+                  <li><a href="/home">Home</a></li>
+                  <li><a href="/individual_entities">Pessoa Física</a></li>
+                  <li><a href="/corporate_entities">Pessoa Jurídica</a></li>
+                </ul>
+              </div>
+            </nav>
             <div class="container">
                 <ng-view>
                 </ng-view>

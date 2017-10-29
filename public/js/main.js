@@ -2,8 +2,20 @@ angular.module('client-account-control', ['ngRoute'])
 .config(function($routeProvider, $locationProvider) {
 	$locationProvider.html5Mode(true);
 
-	$routeProvider.otherwise({ redirectTo: 'individual_entities'});
+	$routeProvider.otherwise({ redirectTo: '/home'});
 
+	$routeProvider.when('/home', {
+		templateUrl: 'partials/home/home.html',
+		controller: 'HomeController'
+	});
+	////////////////////////////////////////////////////
+
+	$routeProvider.when('/corporate_entities', {
+		templateUrl: 'partials/corporate-entities/index.html',
+		controller: 'CorporateEntitiesController'
+	});
+
+	////////////////////////////////////////////////////
 	$routeProvider.when('/individual_entities', {
 		templateUrl: 'partials/individual-entities/index.html',
 		controller: 'IndividualEntitiesController'
