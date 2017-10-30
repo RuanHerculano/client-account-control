@@ -1,0 +1,36 @@
+<div class="jumbotron">
+    <h1 class="text-center">Contas</h1>
+</div>
+
+<p class="alert alert-info" ng-show="message.length">
+    {{message}}
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>corporate_entity_id</th>
+            <th>individual_entity_id</th>
+            <th>account_id</th>
+            <th>status</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="account in accounts">
+        <tr>
+            <td>{{account.name}}</td>
+            <td>{{account.corporate_entity_id}}</td>
+            <td>{{account.individual_entity_id}}</td>
+            <td>{{account.account_id}}</td>
+            <td>{{account.status}}</td>
+            <!-- <td>
+                <a href="corporate_entities/edit/{{account.id}}" class="btn btn-primary btn-block">Editar</a>
+            </td> -->
+            <td>
+                <button ng-click="destroy(account)" class="btn btn-danger">Excluir</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- <a class="button" href="corporate_entities/new">Novo</a> -->

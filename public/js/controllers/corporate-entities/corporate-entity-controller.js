@@ -4,17 +4,6 @@ angular.module('client-account-control').controller('CorporateEntityController',
   var url = 'http://localhost:3000/corporate_entities';
   var responseExtension = '.json';
 
-  // function show() {
-  //   $http.get(url + '/' + $routeParams.corporateEntityId + responseExtension)
-  //   .success(function(response) {
-  //     $scope.corporateEntity = response;
-  //     $scope.message = 'Pessoa Física obtida com sucesso';
-  //   })
-  //   .error(function(error) {
-  //     $scope.message = 'Não foi possível obter a Pessoa Física';
-  //   });
-  // };
-
   function update() {
     $http({
         method: 'PUT',

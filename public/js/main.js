@@ -9,6 +9,11 @@ angular.module('client-account-control', ['ngRoute'])
 		controller: 'HomeController'
 	});
 
+	$routeProvider.when('/accounts', {
+		templateUrl: 'partials/accounts/index.html',
+		controller: 'AccountsController'
+	});
+
 	$routeProvider.when('/corporate_entities', {
 		templateUrl: 'partials/corporate-entities/index.html',
 		controller: 'CorporateEntitiesController'
