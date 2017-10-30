@@ -1,0 +1,23 @@
+<div class="page-header text-center">
+    <h1>CRIAR NOVA CONTA</h1>
+</div>
+
+<p ng-show="message.length" class="alert alert-info">{{message}}</p>
+
+<form novalidate name="formulary" class="row" ng-submit="submit()">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Nome</label>
+            <input ng-model="account.name" name="name" class="form-control" required>
+            <span ng-show="formulary.$submitted && formulary.name.$error.required"  class="form-control alert-danger">
+                Nome é Obrigatório
+            </span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Salvar
+        </button>
+         <a href="/accounts" class="btn btn-primary">Voltar</a>
+        <hr>
+    </div>
+</form>

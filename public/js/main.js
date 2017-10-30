@@ -30,7 +30,7 @@ angular.module('client-account-control', ['ngRoute'])
 		});
 
 		$routeProvider.when('/corporate_entities/edit/:corporateEntityId', {
-			templateUrl: 'partials/individual-entities/new.html',
+			templateUrl: 'partials/corporate-entities/new.html',
 			controller: 'CorporateEntityController'
 		});
 

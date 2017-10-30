@@ -5,6 +5,10 @@ angular.module('client-account-control')
 		var url = 'http://localhost:3000/individual_entities';
 		var responseExtension = '.json';
 
+		if ($routeParams.individualEntityId) {
+			show();
+		}
+
 		function update() {
 			$http({
 				method: 'PUT',
@@ -45,10 +49,6 @@ angular.module('client-account-control')
 					$scope.message = 'Não foi possível obter a Pessoa Física';
 				});
 		};
-
-		if ($routeParams.individualEntityId) {
-			show();
-		}
 
 		function notReloadPageForm() {
 			$timeout(function () {

@@ -27,7 +27,6 @@
 
         <div class="form-group">
             <label>Data de nascimento</label>
-            {{individualEntity.date_birth}}
             <input datetime="dd-MM-yyyy" type="date" ng-model="individualEntity.date_birth" name="date_birth" class="form-control" >
             <span ng-show="formulary.$submitted && formulary.body.$error.required" class="form-control alert-danger">
                 Date de nascimento é obrigatória

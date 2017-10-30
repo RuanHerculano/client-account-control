@@ -42,7 +42,7 @@ angular.module('client-account-control')
         function show() {
 			$http.get(url + '/' + $routeParams.corporateEntityId + responseExtension)
 				.success(function (response) {
-					$scope.corporateEntityId = response;
+					$scope.corporateEntity = response;
 					$scope.message = 'Pessoa Física obtida com sucesso';
 				})
 				.error(function (error) {
