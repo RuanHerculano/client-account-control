@@ -3,6 +3,7 @@ angular.module('client-account-control')
         $scope.account = {};
         $scope.corporateEntities = [];
         $scope.individualEntities = [];
+        $scope.accounts = [];        
         $scope.message = '';
         var url = 'http://localhost:3000/accounts';
         var responseExtension = '.json';
@@ -11,8 +12,18 @@ angular.module('client-account-control')
             show();
         }
 
-        $scope.loadCorporateEntities = function () {
+        $scope.loadAccounts = function () {
             $http.get(url + responseExtension)
+            .then(function (response) {
+                $scope.accounts = response.data;
+                $scope.message = 'Lista de Contas carregada com sucesso.'
+            }).catch(function (error) {
+                $scope.message = 'Erro ao carregar lista de Contas.';
+            });
+        };
+
+        $scope.loadCorporateEntities = function () {
+            $http.get('http://localhost:3000/corporate_entities' + responseExtension)
                 .then(function (response) {
                     $scope.corporateEntities = response.data;
                     $scope.message = 'Lista de Pessoa Jurídica foi carregada com sucesso.'
@@ -22,13 +33,24 @@ angular.module('client-account-control')
         };
 
         $scope.loadIndividualEntities = function () {
-            $http.get(url + responseExtension)
+            $http.get('http://localhost:3000/individual_entities' + responseExtension)
                 .then(function (response) {
                     $scope.individualEntities = response.data;
                     $scope.message = 'Lista de Pessoa Física carregada com sucesso.'
                 }).catch(function (error) {
                     $scope.message = 'Erro ao carregar lista de Pessoa Física.';
                 });
+        };
+
+        $scope.submit = function () {
+            if ($scope.formulary.$valid) {
+                if ($scope.account.id) {
+                    update();
+                } else {
+                    create();
+                }
+            }
+            notReloadPageForm();
         };
 
         function update() {
@@ -76,16 +98,5 @@ angular.module('client-account-control')
             $timeout(function () {
                 $scope.formulary.$submitted = false;
             });
-        };
-
-        $scope.submit = function () {
-            if ($scope.formulary.$valid) {
-                if ($scope.account.id) {
-                    update();
-                } else {
-                    create();
-                }
-            }
-            notReloadPageForm();
         };
     });

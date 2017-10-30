@@ -4,7 +4,7 @@
 
 <p ng-show="message.length" class="alert alert-info">{{message}}</p>
 
-<form novalidate name="formulary" class="row" ng-submit="submit()" data-ng-init="loadCorporateEntities();">
+<form novalidate name="formulary" class="row" ng-submit="submit()" data-ng-init="loadCorporateEntities();loadIndividualEntities();loadAccounts();">
     <div class="col-md-6">
         <div class="form-group">
             <label>Nome</label>
@@ -14,6 +14,27 @@
             </span>
         </div>
 
+        <div class="form-group">
+            <label>Pessoa jurídica</label>
+            <select class="form-control">
+                <option ng-repeat="corporateEntity in corporateEntities">{{corporateEntity.cnpj}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Pessoa física</label>
+            <select class="form-control">
+                <option ng-repeat="individualEntity in individualEntities">{{individualEntity.cpf}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Contas associadas</label>
+            <select class="form-control">
+                <option ng-repeat="account in accounts">{{account.name}}</option>
+            </select>
+        </div>
+        
         <button type="submit" class="btn btn-primary">
             Salvar
         </button>
