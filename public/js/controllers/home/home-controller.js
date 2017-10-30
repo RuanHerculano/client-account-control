@@ -1,3 +1,2 @@
-angular.module('client-account-control').controller('HomeController', function() {
-
-});
+angular.module('client-account-control')
+    .controller('HomeController', function () { });
