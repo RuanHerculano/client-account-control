@@ -5,6 +5,10 @@ angular.module('client-account-control')
         var url = 'http://localhost:3000/corporate_entities';
         var responseExtension = '.json';
 
+        if ($routeParams.corporateEntityId) {
+			show();
+		}
+
         function update() {
             $http({
                 method: 'PUT',
@@ -34,6 +38,17 @@ angular.module('client-account-control')
                     $scope.message = 'Não foi possível cadastrar Pessoa Jurídica';
                 });
         };
+
+        function show() {
+			$http.get(url + '/' + $routeParams.corporateEntityId + responseExtension)
+				.success(function (response) {
+					$scope.corporateEntityId = response;
+					$scope.message = 'Pessoa Física obtida com sucesso';
+				})
+				.error(function (error) {
+					$scope.message = 'Não foi possível obter a Pessoa Física';
+				});
+		};
 
         function notReloadPageForm() {
             $timeout(function () {
