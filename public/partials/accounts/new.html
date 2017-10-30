@@ -9,7 +9,7 @@
         <div class="form-group">
             <label>Nome</label>
             <input ng-model="account.name" name="name" class="form-control" required>
-            <span ng-show="formulary.$submitted && formulary.name.$error.required"  class="form-control alert-danger">
+            <span ng-show="formulary.$submitted && formulary.name.$error.required" class="form-control alert-danger">
                 Nome é Obrigatório
             </span>
         </div>
@@ -17,28 +17,37 @@
         <div class="form-group">
             <label>Pessoa jurídica</label>
             <select class="form-control">
-                <option ng-repeat="corporateEntity in corporateEntities">{{corporateEntity.cnpj}}</option>
+                <option></option>
+                <option ng-repeat="corporateEntity in corporateEntities"
+                value="{{ corporateEntity.id }}" ng-selected="corporateEntity.id == account.corporate_entity_id">
+                    {{corporateEntity.cnpj}}
+                </option>
             </select>
         </div>
 
         <div class="form-group">
             <label>Pessoa física</label>
             <select class="form-control">
-                <option ng-repeat="individualEntity in individualEntities">{{individualEntity.cpf}}</option>
+                <option></option>
+                <option ng-repeat="individualEntity in individualEntities"
+                value="{{ individualEntity.id }}" ng-selected="individualEntity.id == account.individual_entity_id">
+                    {{individualEntity.cpf}}
+                </option>
             </select>
         </div>
 
         <div class="form-group">
-            <label>Contas associadas</label>
+            <label>Conta associada</label>
             <select class="form-control">
+                <option></option>
                 <option ng-repeat="account in accounts">{{account.name}}</option>
             </select>
         </div>
-        
+
         <button type="submit" class="btn btn-primary">
             Salvar
         </button>
-         <a href="/accounts" class="btn btn-primary">Voltar</a>
+        <a href="/accounts" class="btn btn-primary">Voltar</a>
         <hr>
     </div>
 </form>
