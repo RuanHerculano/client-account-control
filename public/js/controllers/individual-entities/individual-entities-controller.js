@@ -5,13 +5,13 @@ angular.module('client-account-control')
 		var url = 'http://localhost:3000/individual_entities';
 		var responseExtension = '.json';
 
-		var promise = $http.get(url + responseExtension);
-		promise.then(function (response) {
-			$scope.individualEntities = response.data;
-			$scope.message = 'Lista de Pessoa Física carregada com sucesso.'
-		}).catch(function (error) {
-			$scope.message = 'Erro ao carregar lista de Pessoa Física.';
-		});
+		$http.get(url + responseExtension)
+			.then(function (response) {
+				$scope.individualEntities = response.data;
+				$scope.message = 'Lista de Pessoa Física carregada com sucesso.'
+			}).catch(function (error) {
+				$scope.message = 'Erro ao carregar lista de Pessoa Física.';
+			});
 
 		function destroy(individualEntity) {
 			$http({

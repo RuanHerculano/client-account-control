@@ -5,13 +5,13 @@ angular.module('client-account-control')
         var url = 'http://localhost:3000/accounts';
         var responseExtension = '.json';
 
-        var promise = $http.get(url + responseExtension);
-        promise.then(function (response) {
-            $scope.accounts = response.data;
-            $scope.message = 'Lista de Contas carregada com sucesso.'
-        }).catch(function (error) {
-            $scope.message = 'Erro ao carregar lista de Contas.';
-        });
+        $http.get(url + responseExtension)
+            .then(function (response) {
+                $scope.accounts = response.data;
+                $scope.message = 'Lista de Contas carregada com sucesso.'
+            }).catch(function (error) {
+                $scope.message = 'Erro ao carregar lista de Contas.';
+            });
 
         function destroy(account) {
             $http({
