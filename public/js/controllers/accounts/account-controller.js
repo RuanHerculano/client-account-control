@@ -54,6 +54,7 @@ angular.module('client-account-control')
         };
 
         function update() {
+            buildData();
             $http({
                 method: 'PUT',
                 url: url + '/' + $scope.account.id + responseExtension,
@@ -66,6 +67,18 @@ angular.module('client-account-control')
                 .error(function (error) {
                     $scope.message = 'Não foi possível cadastrar Conta';
                 });
+        };
+
+        function buildData() {
+            if ($scope.account.corporate_entity_id == "")  {
+                $scope.account.corporate_entity_id = null;
+            }
+            if ($scope.account.individual_entity_id == "")  {
+                $scope.account.individual_entity_id = null;
+            }
+            if ($scope.account.account_id == "")  {
+                $scope.account.account_id = null;
+            }
         };
 
         function create() {
