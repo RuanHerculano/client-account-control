@@ -13,28 +13,26 @@
                 Nome é Obrigatório
             </span>
         </div>
-        
+
         <div class="form-group">
             <label>Pessoa jurídica</label>
-            <select class="form-control" ng-model="account.corporate_entity_id"
-            ng-options="corporateEntity.id as corporateEntity.cnpj for corporateEntity in corporateEntities">
+            <select class="form-control" ng-model="account.corporate_entity_id" ng-options="corporateEntity.id as corporateEntity.cnpj for corporateEntity in corporateEntities">
                 <option value=""></option>
             </select>
         </div>
 
         <div class="form-group">
             <label>Pessoa física</label>
-            <select class="form-control" ng-model="account.individual_entity_id"
-            ng-options="individualEntity.id as individualEntity.cpf for individualEntity in individualEntities">
+            <select class="form-control" ng-model="account.individual_entity_id" ng-options="individualEntity.id as individualEntity.cpf for individualEntity in individualEntities">
                 <option value=""></option>
             </select>
         </div>
 
         <div class="form-group">
-            <label>Pessoa física</label>
-            <select class="form-control" ng-model="account.account_id"
-            ng-options="accountRelation.id as accountRelation.name for accountRelation in accounts">
+            <label>Contas associadas</label>
+            <select class="form-control">
                 <option value=""></option>
+                <option ng-repeat="account in accounts">{{account.name}}</option>
             </select>
         </div>
 

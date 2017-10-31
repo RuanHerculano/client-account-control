@@ -15,7 +15,7 @@ angular.module('client-account-control')
         $scope.loadAccounts = function () {
             $http.get(url + responseExtension)
             .then(function (response) {
-                $scope.accounts = response.data;
+                $scope.accounts = filterAccounts(response.data);
                 $scope.message = 'Lista de Contas carregada com sucesso.'
             }).catch(function (error) {
                 $scope.message = 'Erro ao carregar lista de Contas.';
@@ -53,8 +53,18 @@ angular.module('client-account-control')
             notReloadPageForm();
         };
 
+        function filterAccounts(data) {
+            data.forEach(function(element, index) {
+                if (angular.equals(element, $scope.account)) {
+                    data.splice(index, 1);
+                }
+            });
+            
+            return data;
+        };
+
         function update() {
-            buildData();
+            cleanData();
             $http({
                 method: 'PUT',
                 url: url + '/' + $scope.account.id + responseExtension,
@@ -69,7 +79,7 @@ angular.module('client-account-control')
                 });
         };
 
-        function buildData() {
+        function cleanData() {
             if ($scope.account.corporate_entity_id == "")  {
                 $scope.account.corporate_entity_id = null;
             }
