@@ -1,0 +1,34 @@
+<div class="jumbotron">
+    <h1 class="text-center">Pessoa Física</h1>
+</div>
+
+<p class="alert alert-info" ng-show="message.length">
+    {{message}}
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Valor</th>
+            <th>Conta de origen</th>
+            <th>Conta de destino</th>
+            <th>Status da conta</th>            
+        </tr>
+    </thead>
+    <tbody ng-repeat="financialTransaction in financialTransactions">
+        <tr>
+            <td>{{financialTransaction.value}}</td>
+            <td>{{financialTransaction.origin_id}}</td>
+            <td>{{financialTransaction.destination_id}}</td>
+            <td>{{financialTransaction.status}}</td>            
+            <!-- <td>
+                <a href="individual_entities/edit/{{individualEntity.id}}" class="btn btn-primary btn-block">Editar</a>
+            </td> -->
+            <!-- <td>
+                <button ng-click="destroy(individualEntity)" class="btn btn-danger">Excluir</button>
+            </td> -->
+        </tr>
+    </tbody>
+</table>
+
+<!-- <a class="button" href="individual_entities/new">Novo</a> -->
