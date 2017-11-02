@@ -1,0 +1,43 @@
+<div class="page-header text-center">
+    <h1>CRIAR NOVA PESSOA JURÍDICA</h1>
+</div>
+
+<p ng-show="message.length" class="alert alert-info">{{message}}</p>
+
+<form novalidate name="formulary" class="row" ng-submit="submit()" data-ng-init="loadAccounts();">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Valor</label>
+            <input type="number" min="0" ng-model="financialTransaction.value" name="value" class="form-control" required>
+            <span ng-show="formulary.$submitted && formulary.value.$error.required"  class="form-control alert-danger">
+                Valor é obrigatório
+            </span>
+        </div>
+        
+        <div class="form-group">
+            <label>Conta de origem</label>
+            <select class="form-control"
+            ng-model="financialTransaction.origin_id" ng-options="origin.id as origin.name for origin in origins" required>
+            </select>
+            <span ng-show="formulary.$submitted && formulary.origin.$error.required"  class="form-control alert-danger">
+                Conta de origem é obrigatória
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label>Conta destino</label>
+            <select class="form-control" ng-model="financialTransaction.destination_id"
+            ng-options="destination.id as destination.name for destination in destinations" required>
+            </select>
+            <span ng-show="formulary.$submitted && formulary.account_id.$error.required"  class="form-control alert-danger">
+                Conta de destino é obrigatória
+            </span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            Salvar
+        </button>
+         <a href="/financial_transactions" class="btn btn-primary">Voltar</a>
+        <hr>
+    </div>
+</form>

@@ -12,7 +12,7 @@
             <th>Valor</th>
             <th>Conta de origen</th>
             <th>Conta de destino</th>
-            <th>Status da conta</th>            
+            <th>Status da transação</th>            
         </tr>
     </thead>
     <tbody ng-repeat="financialTransaction in financialTransactions">
@@ -24,11 +24,11 @@
             <!-- <td>
                 <a href="individual_entities/edit/{{individualEntity.id}}" class="btn btn-primary btn-block">Editar</a>
             </td> -->
-            <!-- <td>
-                <button ng-click="destroy(individualEntity)" class="btn btn-danger">Excluir</button>
-            </td> -->
+            <td>
+                <button ng-if="financialTransaction.status != 'reversaled'" ng-click="destroy(individualEntity)" class="btn btn-danger">Estornar</button>
+            </td>
         </tr>
     </tbody>
 </table>
 
-<!-- <a class="button" href="individual_entities/new">Novo</a> -->
+<a class="button" href="financial_transactions/new">Novo</a>
