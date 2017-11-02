@@ -14,6 +14,11 @@ angular.module('client-account-control', ['ngRoute'])
 			controller: 'FinancialContributionsController'
 		});
 
+		$routeProvider.when('/financial_contributions/new', {
+			templateUrl: 'partials/financial-contributions/new.html',
+			controller: 'FinancialContributionController'
+		});
+
 		$routeProvider.when('/financial_transactions', {
 			templateUrl: 'partials/financial-transactions/index.html',
 			controller: 'FinancialTransactionsController'

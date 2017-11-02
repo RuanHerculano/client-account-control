@@ -24,7 +24,10 @@
             <td>{{financialTransaction.destination_id}}</td>
             <td>{{financialTransaction.status}}</td>
             <td>
-                <button ng-if="financialTransaction.status != 'reversaled'" ng-click="reversal(financialTransaction)" class="btn btn-danger">Estornar</button>
+                <button ng-if="financialTransaction.status != 'reversaled'"
+                ng-click="reversal(financialTransaction)" class="btn btn-danger">
+                    Estornar
+                </button>
             </td>
         </tr>
     </tbody>

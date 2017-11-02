@@ -32,4 +32,4 @@ angular.module('client-account-control')
 		$scope.reversal = function (financialTransaction) {
 			reversal(financialTransaction);
 		};
-    });
+	});

@@ -9,6 +9,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Código</th>                
             <th>Valor</th>
             <th>Conta de origen</th>
             <th>Status do aporte</th>            
@@ -16,17 +17,15 @@
     </thead>
     <tbody ng-repeat="financialContribution in financialContributions">
         <tr>
+            <td>{{financialContribution.code}}</td>
             <td>{{financialContribution.value}}</td>
             <td>{{financialContribution.account_id}}</td>
-            <td>{{financialContribution.status}}</td>
+            <td>{{financialContribution.status}}</td>           
             <!-- <td>
                 <a href="individual_entities/edit/{{individualEntity.id}}" class="btn btn-primary btn-block">Editar</a>
-            </td> -->
-            <!-- <td>
-                <button ng-click="destroy(individualEntity)" class="btn btn-danger">Excluir</button>
             </td> -->
         </tr>
     </tbody>
 </table>
 
-<!-- <a class="button" href="individual_entities/new">Novo</a> -->
+<a class="button" href="financial_contributions/new">Novo</a>
