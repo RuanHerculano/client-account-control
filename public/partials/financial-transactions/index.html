@@ -9,6 +9,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Código</th>                
             <th>Valor</th>
             <th>Conta de origen</th>
             <th>Conta de destino</th>
@@ -17,15 +18,13 @@
     </thead>
     <tbody ng-repeat="financialTransaction in financialTransactions">
         <tr>
+            <td>{{financialTransaction.code}}</td>                
             <td>{{financialTransaction.value}}</td>
             <td>{{financialTransaction.origin_id}}</td>
             <td>{{financialTransaction.destination_id}}</td>
-            <td>{{financialTransaction.status}}</td>            
-            <!-- <td>
-                <a href="individual_entities/edit/{{individualEntity.id}}" class="btn btn-primary btn-block">Editar</a>
-            </td> -->
+            <td>{{financialTransaction.status}}</td>
             <td>
-                <button ng-if="financialTransaction.status != 'reversaled'" ng-click="destroy(individualEntity)" class="btn btn-danger">Estornar</button>
+                <button ng-if="financialTransaction.status != 'reversaled'" ng-click="reversal(financialTransaction)" class="btn btn-danger">Estornar</button>
             </td>
         </tr>
     </tbody>
