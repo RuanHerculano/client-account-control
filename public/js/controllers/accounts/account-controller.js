@@ -12,6 +12,12 @@ angular.module('client-account-control')
             show();
         }
 
+        $scope.teste = function (id) {
+            var select = document.getElementById(id);
+            var length = select.options.length;
+            select.options[0].selected = 'selected';    
+        };
+
         $scope.loadAccounts = function () {
             $http.get(url + responseExtension)
             .then(function (response) {

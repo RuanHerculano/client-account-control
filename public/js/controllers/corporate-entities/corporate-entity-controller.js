@@ -18,7 +18,6 @@ angular.module('client-account-control')
             if (cnpj.length != 14)
                 return false;
         
-            // Elimina CNPJs invalidos conhecidos
             if (cnpj == "00000000000000" || 
                 cnpj == "11111111111111" || 
                 cnpj == "22222222222222" || 
@@ -31,7 +30,6 @@ angular.module('client-account-control')
                 cnpj == "99999999999999")
                 return false;
                 
-            // Valida DVs
             tamanho = cnpj.length - 2
             numeros = cnpj.substring(0,tamanho);
             digitos = cnpj.substring(tamanho);
