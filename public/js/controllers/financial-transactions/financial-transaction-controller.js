@@ -38,8 +38,6 @@ angular.module('client-account-control')
     };
 
     function create() {
-        console.log('Olha ai o que estou mandando');
-        console.log($scope.financialTransaction);
         $http({
             method: 'POST',
             url: url + responseExtension,

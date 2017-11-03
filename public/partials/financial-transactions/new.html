@@ -16,7 +16,7 @@
 
         <div class="form-group">
             <label>Origem</label>
-            <select class="form-control" ng-model="financialTransaction.origin_id"
+            <select class="form-control" ng-value="origin.id" ng-model="financialTransaction.origin_id"
             ng-options="origin.id as origin.name for origin in origins">
                 <option value=""></option>
             </select>
