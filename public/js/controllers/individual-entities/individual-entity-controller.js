@@ -11,7 +11,6 @@ angular.module('client-account-control')
 
 		$scope.validateCPF = function () {
 			var cpf = $scope.individualEntity.cpf.toString();
-			console.log(cpf);			
 			cpf = cpf.replace(/[^\d]+/g, '');
 			if (cpf == '') return false;
 			
@@ -29,7 +28,6 @@ angular.module('client-account-control')
 				return false;
 			
 			var add = 0;
-			console.log('chega aqui');
 			for (i = 0; i < 9; i++)
 				add += parseInt(cpf.charAt(i)) * (10 - i);
 			rev = 11 - (add % 11);

@@ -12,6 +12,9 @@
             <span ng-show="formulary.$submitted && formulary.cnpj.$error.required"  class="form-control alert-danger">
                 CNPJ é Obrigatório
             </span>
+            <span ng-show="formulary.$submitted && !validateCNPJ();" class="form-control alert-danger">
+                CNPJ inválido
+            </span>
         </div>
 
         <div class="form-group">
