@@ -9,19 +9,19 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Código</th>                
+            <th>Código</th>
             <th>Valor</th>
             <th>Conta de origen</th>
             <th>Conta de destino</th>
-            <th>Status da transação</th>            
+            <th>Status da transação</th>
         </tr>
     </thead>
     <tbody ng-repeat="financialTransaction in financialTransactions">
         <tr>
-            <td>{{financialTransaction.code}}</td>                
+            <td>{{financialTransaction.code}}</td>
             <td>{{financialTransaction.value}}</td>
-            <td>{{financialTransaction.origin_id}}</td>
-            <td>{{financialTransaction.destination_id}}</td>
+            <td>{{financialTransaction.origin.name}}</td>
+            <td>{{financialTransaction.destination.name}}</td>
             <td>{{financialTransaction.status}}</td>
             <td>
                 <button ng-if="financialTransaction.status != 'reversaled'"
