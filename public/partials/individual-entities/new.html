@@ -6,12 +6,16 @@
 
 <form novalidate name="formulary" class="row" ng-submit="submit()">
     <div class="col-md-6">
+        {{validateCPF();}}
         <div class="form-group">
             <label>CPF</label>
             <input ng-model="individualEntity.cpf" name="cpf" class="form-control" required>
             <span ng-show="formulary.$submitted && formulary.cpf.$error.required"  class="form-control alert-danger">
                 CPF é Obrigatório
             </span>
+            <span ng-show="formulary.$submitted && !validateCPF();" class="form-control alert-danger">
+                CPF inválido
+            </span>    
         </div>
 
         <div class="form-group">
@@ -27,8 +31,8 @@
 
         <div class="form-group">
             <label>Data de nascimento</label>
-            <input datetime="dd-MM-yyyy" type="date" ng-model="individualEntity.date_birth" name="date_birth" class="form-control" >
-            <span ng-show="formulary.$submitted && formulary.body.$error.required" class="form-control alert-danger">
+            <input type="date" ng-model="individualEntity.date_birth" name="date_birth" class="form-control" required>
+            <span ng-show="formulary.$submitted && formulary.date_birth.$error.required" class="form-control alert-danger">
                 Date de nascimento é obrigatória
             </span>
         </div>
