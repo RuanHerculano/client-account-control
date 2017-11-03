@@ -2,7 +2,7 @@ angular.module('client-account-control')
 .controller('FinancialTransactionController', function ($scope, $http, $routeParams, $timeout) {
     $scope.financialTransaction = {};
     $scope.origins = [];
-    $scope.destination = [];    
+    $scope.destinations = [];
     $scope.message = '';
     var url = 'http://localhost:3000/financial_transactions';
     var responseExtension = '.json';
