@@ -2,7 +2,7 @@
     <h1>CRIAR NOVA CONTA</h1>
 </div>
 
-<p ng-show="message.length" class="alert alert-info">{{message}}</p>
+<p ng-show="message.length && !isEmpty" class="alert alert-info">{{message}}</p>
 
 <form novalidate name="formulary" class="row" ng-submit="submit()" data-ng-init="loadCorporateEntities();loadIndividualEntities();loadAccounts();">
     <div class="col-md-6">
@@ -15,20 +15,29 @@
         </div>
 
         <div class="form-group">
+            {{account.corporate_entity_id}}
             <label>Pessoa jurídica</label>
             <select ng-click="clearEntity('individual_entity');" id="corporate_entity"
             class="form-control" ng-model="account.corporate_entity_id"
             ng-options="corporateEntity.id as corporateEntity.cnpj for corporateEntity in corporateEntities">
                 <option value=""></option>
             </select>
+            <span ng-show="isEmpty" class="form-control alert-danger">
+                É necessário preencher Pessoa Física ou Pessoa Jurídica
+            </span>
         </div>
 
         <div class="form-group">
+            {{account.individual_entity_id}}
             <label>Pessoa física</label>
-            <select ng-click="clearEntity('corporate_entity');" id="individual_entity" class="form-control" ng-model="account.individual_entity_id"
+            <select ng-click="clearEntity('corporate_entity');" id="individual_entity"
+            class="form-control" ng-model="account.individual_entity_id"
             ng-options="individualEntity.id as individualEntity.cpf for individualEntity in individualEntities">
                 <option value=""></option>
             </select>
+            <span ng-show="isEmpty" class="form-control alert-danger">
+                É necessário preencher Pessoa Física ou Pessoa Jurídica
+            </span>
         </div>
 
         <div class="form-group">
