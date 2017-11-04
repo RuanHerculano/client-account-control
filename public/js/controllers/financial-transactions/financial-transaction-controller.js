@@ -14,7 +14,7 @@ angular.module('client-account-control')
 
     $scope.getValidAccountsTransfer = function () {
         var id = $scope.financialTransaction.origin_id;
-        if (id === null) {
+        if (id === undefined) {
             $scope.validAccountsTransfer = [];
             return;
         }
@@ -93,7 +93,7 @@ angular.module('client-account-control')
             } else {
                 create();
             }
+            notReloadPageForm();
         }
-        notReloadPageForm();
     };
 });
