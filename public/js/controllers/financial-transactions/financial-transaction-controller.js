@@ -16,9 +16,9 @@ angular.module('client-account-control')
         .then(function (response) {
             $scope.origins = response.data;
             $scope.destinations = response.data;
-            $scope.message = 'Lista de Contas carregada com sucesso.'
+            $scope.message = 'Lista carregada com sucesso'
         }).catch(function (error) {
-            $scope.message = 'Erro ao carregar lista de Contas.';
+            $scope.message = 'Erro ao carregar lista';
         });
     };
 
@@ -30,10 +30,10 @@ angular.module('client-account-control')
         })
             .success(function (response) {
                 $scope.financialTransaction = {};
-                $scope.message = 'Pessoa Jurídica Atualizada com sucesso!';
+                $scope.message = 'Atualizado com sucesso';
             })
             .error(function (error) {
-                $scope.message = 'Não foi possível cadastrar Pessoa Jurídica';
+                $scope.message = 'Não foi possível atualizar';
             });
     };
 
@@ -45,10 +45,10 @@ angular.module('client-account-control')
         })
             .success(function (response) {
                 $scope.financialTransaction = {};
-                $scope.message = 'Pessoa Jurídica cadastrada com sucesso!';
+                $scope.message = 'Cadastrado com sucesso';
             })
             .error(function (error) {
-                $scope.message = 'Não foi possível cadastrar Pessoa Jurídica';
+                $scope.message = 'Não foi possível cadastrar';
             });
     };
 
@@ -56,10 +56,10 @@ angular.module('client-account-control')
         $http.get(url + '/' + $routeParams.financialTransactionId + responseExtension)
             .success(function (response) {
                 $scope.financialTransaction = response;
-                $scope.message = 'Pessoa Física obtida com sucesso';
+                $scope.message = 'Registro obtido com sucesso';
             })
             .error(function (error) {
-                $scope.message = 'Não foi possível obter a Pessoa Física';
+                $scope.message = 'Não foi possível obter este registro';
             });
     };
 

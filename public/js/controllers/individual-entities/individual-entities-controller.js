@@ -8,9 +8,9 @@ angular.module('client-account-control')
 		$http.get(url + responseExtension)
 			.then(function (response) {
 				$scope.individualEntities = response.data;
-				$scope.message = 'Lista de Pessoa Física carregada com sucesso.'
+				$scope.message = 'Lista carregada com sucesso.'
 			}).catch(function (error) {
-				$scope.message = 'Erro ao carregar lista de Pessoa Física.';
+				$scope.message = 'Erro ao carregar lista';
 			});
 
 		function destroy(individualEntity) {
@@ -22,10 +22,10 @@ angular.module('client-account-control')
 				.success(function (response) {
 					var individualEntityIndex = $scope.individualEntities.indexOf(individualEntity);
 					$scope.individualEntities.splice(individualEntityIndex, 1);
-					$scope.message = 'Pessoa Física portadora do CPF ' + individualEntity.cpf + ' foi removida com sucesso!';
+					$scope.message = 'Registro removido com sucesso';
 				})
 				.error(function (error) {
-					$scope.message = 'Não foi possível remover Pessoa Física portadora do CPF ' + individualEntity.cpf;
+					$scope.message = 'Não foi possível remover este registro';
 				});
 		};
 

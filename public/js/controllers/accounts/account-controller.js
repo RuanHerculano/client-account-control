@@ -3,7 +3,7 @@ angular.module('client-account-control')
         $scope.account = {};
         $scope.corporateEntities = [];
         $scope.individualEntities = [];
-        $scope.accounts = [];        
+        $scope.accounts = [];
         $scope.message = '';
         var url = 'http://localhost:3000/accounts';
         var responseExtension = '.json';
@@ -15,16 +15,16 @@ angular.module('client-account-control')
         $scope.teste = function (id) {
             var select = document.getElementById(id);
             var length = select.options.length;
-            select.options[0].selected = 'selected';    
+            select.options[0].selected = 'selected';
         };
 
         $scope.loadAccounts = function () {
             $http.get(url + responseExtension)
             .then(function (response) {
                 $scope.accounts = filterAccounts(response.data);
-                $scope.message = 'Lista de Contas carregada com sucesso.'
+                $scope.message = 'Lista carregada com sucesso'
             }).catch(function (error) {
-                $scope.message = 'Erro ao carregar lista de Contas.';
+                $scope.message = 'Erro ao carregar lista';
             });
         };
 
@@ -32,9 +32,9 @@ angular.module('client-account-control')
             $http.get('http://localhost:3000/corporate_entities' + responseExtension)
                 .then(function (response) {
                     $scope.corporateEntities = response.data;
-                    $scope.message = 'Lista de Pessoa Jurídica foi carregada com sucesso.'
+                    $scope.message = 'Lista carregada com sucesso'
                 }).catch(function (error) {
-                    $scope.message = 'Erro ao carregar lista de Pessoa Jurídica.';
+                    $scope.message = 'Erro ao carregar lista';
                 });
         };
 
@@ -42,9 +42,9 @@ angular.module('client-account-control')
             $http.get('http://localhost:3000/individual_entities' + responseExtension)
                 .then(function (response) {
                     $scope.individualEntities = response.data;
-                    $scope.message = 'Lista de Pessoa Física carregada com sucesso.'
+                    $scope.message = 'Lista carregada com sucesso.'
                 }).catch(function (error) {
-                    $scope.message = 'Erro ao carregar lista de Pessoa Física.';
+                    $scope.message = 'Erro ao carregar lista';
                 });
         };
 
@@ -65,7 +65,7 @@ angular.module('client-account-control')
                     data.splice(index, 1);
                 }
             });
-            
+
             return data;
         };
 
@@ -78,10 +78,10 @@ angular.module('client-account-control')
             })
                 .success(function (response) {
                     $scope.account = {};
-                    $scope.message = 'Conta Atualizada com sucesso!';
+                    $scope.message = 'Atualizado com sucesso';
                 })
                 .error(function (error) {
-                    $scope.message = 'Não foi possível cadastrar Conta';
+                    $scope.message = 'Não foi possível atualizar';
                 });
         };
 
@@ -105,10 +105,10 @@ angular.module('client-account-control')
             })
                 .success(function (response) {
                     $scope.account = {};
-                    $scope.message = 'Conta cadastrada com sucesso!';
+                    $scope.message = 'Cadastrado com sucesso';
                 })
                 .error(function (error) {
-                    $scope.message = 'Não foi possível cadastrar Conta';
+                    $scope.message = 'Não foi possível cadastrar';
                 });
         };
 
@@ -116,10 +116,10 @@ angular.module('client-account-control')
             $http.get(url + '/' + $routeParams.accountId + responseExtension)
                 .success(function (response) {
                     $scope.account = response;
-                    $scope.message = 'Pessoa Física obtida com sucesso';
+                    $scope.message = 'Registro obtido com sucesso';
                 })
                 .error(function (error) {
-                    $scope.message = 'Não foi possível obter a Pessoa Física';
+                    $scope.message = 'Não foi possível obter registro';
                 });
         };
 

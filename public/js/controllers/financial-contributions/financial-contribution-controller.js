@@ -14,9 +14,9 @@ angular.module('client-account-control')
             $http.get("http://localhost:3000/accounts" + responseExtension)
                 .then(function (response) {
                     $scope.origins = response.data;
-                    $scope.message = 'Lista de Contas carregada com sucesso.'
+                    $scope.message = 'Lista carregada com sucesso'
                 }).catch(function (error) {
-                    $scope.message = 'Erro ao carregar lista de Contas.';
+                    $scope.message = 'Erro ao carregar lista';
                 });
         };
 
@@ -28,16 +28,14 @@ angular.module('client-account-control')
             })
                 .success(function (response) {
                     $scope.financialContribution = {};
-                    $scope.message = 'Pessoa Jurídica Atualizada com sucesso!';
+                    $scope.message = 'Atualizado com sucesso!';
                 })
                 .error(function (error) {
-                    $scope.message = 'Não foi possível cadastrar Pessoa Jurídica';
+                    $scope.message = 'Não foi possível atualizar';
                 });
         };
 
         function create() {
-            console.log('Olha ai o que estou mandando');
-            console.log($scope.financialContribution);
             $http({
                 method: 'POST',
                 url: url + responseExtension,
@@ -45,10 +43,10 @@ angular.module('client-account-control')
             })
                 .success(function (response) {
                     $scope.financialContribution = {};
-                    $scope.message = 'Pessoa Jurídica cadastrada com sucesso!';
+                    $scope.message = 'Cadastrado com sucesso';
                 })
                 .error(function (error) {
-                    $scope.message = 'Não foi possível cadastrar Pessoa Jurídica';
+                    $scope.message = 'Não foi possível cadastrar';
                 });
         };
 
@@ -56,10 +54,10 @@ angular.module('client-account-control')
             $http.get(url + '/' + $routeParams.financialContributionId + responseExtension)
                 .success(function (response) {
                     $scope.financialContribution = response;
-                    $scope.message = 'Pessoa Física obtida com sucesso';
+                    $scope.message = 'Registro obtido com sucesso';
                 })
                 .error(function (error) {
-                    $scope.message = 'Não foi possível obter a Pessoa Física';
+                    $scope.message = 'Não foi possível obter registro';
                 });
         };
 

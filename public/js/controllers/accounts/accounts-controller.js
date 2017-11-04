@@ -8,9 +8,9 @@ angular.module('client-account-control')
         $http.get(url + responseExtension)
             .then(function (response) {
                 $scope.accounts = response.data;
-                $scope.message = 'Lista de Contas carregada com sucesso.'
+                $scope.message = 'Lista carregada com sucesso.'
             }).catch(function (error) {
-                $scope.message = 'Erro ao carregar lista de Contas.';
+                $scope.message = 'Erro ao carregar lista';
             });
 
         function destroy(account) {
@@ -21,10 +21,10 @@ angular.module('client-account-control')
                 .success(function (response) {
                     var accountIndex = $scope.accounts.indexOf(account);
                     $scope.accounts.splice(accountIndex, 1);
-                    $scope.message = 'Conta' + account.name + ' foi removida com sucesso!';
+                    $scope.message = 'Registro removido com sucesso!';
                 })
                 .error(function (error) {
-                    $scope.message = 'Não foi possível remover Pessoa Jurídica portadora do CNPJ ' + account.cnpj;
+                    $scope.message = 'Não foi possível remover este Registro';
                 });
         };
 

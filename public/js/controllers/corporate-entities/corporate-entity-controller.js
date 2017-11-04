@@ -68,10 +68,10 @@ angular.module('client-account-control')
             })
                 .success(function (response) {
                     $scope.corporateEntity = {};
-                    $scope.message = 'Pessoa Jurídica Atualizada com sucesso!';
+                    $scope.message = 'Registro atualizado com sucesso!';
                 })
                 .error(function (error) {
-                    $scope.message = 'Não foi possível cadastrar Pessoa Jurídica';
+                    $scope.message = 'Não foi possível atualizar registro';
                 });
         };
 
@@ -83,10 +83,10 @@ angular.module('client-account-control')
             })
                 .success(function (response) {
                     $scope.corporateEntity = {};
-                    $scope.message = 'Pessoa Jurídica cadastrada com sucesso!';
+                    $scope.message = 'Cadastrada com sucesso';
                 })
                 .error(function (error) {
-                    $scope.message = 'Não foi possível cadastrar Pessoa Jurídica';
+                    $scope.message = 'Não foi possível cadastrar';
                 });
         };
 
@@ -94,10 +94,10 @@ angular.module('client-account-control')
 			$http.get(url + '/' + $routeParams.corporateEntityId + responseExtension)
 				.success(function (response) {
 					$scope.corporateEntity = response;
-					$scope.message = 'Pessoa Física obtida com sucesso';
+					$scope.message = 'Registro obtido com sucesso';
 				})
 				.error(function (error) {
-					$scope.message = 'Não foi possível obter a Pessoa Física';
+					$scope.message = 'Não foi possível obter este registro';
 				});
 		};
 

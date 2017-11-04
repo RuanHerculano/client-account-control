@@ -8,8 +8,8 @@ angular.module('client-account-control')
     $http.get(url + responseExtension)
         .then(function (response) {
             $scope.financialContributions = response.data;
-            $scope.message = 'Lista de aportes carregada com sucesso.'
+            $scope.message = 'Lista carregada com sucesso'
         }).catch(function (error) {
-            $scope.message = 'Erro ao carregar lista de transferências.';
+            $scope.message = 'Erro ao carregar lista';
         });
 });

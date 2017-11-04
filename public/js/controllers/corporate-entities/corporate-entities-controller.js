@@ -8,9 +8,9 @@ angular.module('client-account-control')
         $http.get(url + responseExtension)
             .then(function (response) {
                 $scope.corporateEntities = response.data;
-                $scope.message = 'Lista de Pessoa Jurídica foi carregada com sucesso.'
+                $scope.message = 'Lista carregada com sucesso'
             }).catch(function (error) {
-                $scope.message = 'Erro ao carregar lista de Pessoa Jurídica.';
+                $scope.message = 'Erro ao carregar lista';
             });
 
         function destroy(corporateEntity) {
@@ -21,10 +21,10 @@ angular.module('client-account-control')
                 .success(function (response) {
                     var corporateEntityIndex = $scope.corporateEntities.indexOf(corporateEntity);
                     $scope.corporateEntities.splice(corporateEntityIndex, 1);
-                    $scope.message = 'Pessoa Jurídica portadora do CNPJ ' + corporateEntity.cnpj + ' foi removida com sucesso!';
+                    $scope.message = 'Registro removido com sucesso';
                 })
                 .error(function (error) {
-                    $scope.message = 'Não foi possível remover Pessoa Jurídica portadora do CNPJ ' + corporateEntity.cnpj;
+                    $scope.message = 'Não foi possível remover este registro';
                 });
         };
 

@@ -13,7 +13,7 @@ angular.module('client-account-control')
 			var cpf = $scope.individualEntity.cpf.toString();
 			cpf = cpf.replace(/[^\d]+/g, '');
 			if (cpf == '') return false;
-			
+
 			if (cpf.length != 11 ||
 				cpf == "00000000000" ||
 				cpf == "11111111111" ||
@@ -26,7 +26,7 @@ angular.module('client-account-control')
 				cpf == "88888888888" ||
 				cpf == "99999999999")
 				return false;
-			
+
 			var add = 0;
 			for (i = 0; i < 9; i++)
 				add += parseInt(cpf.charAt(i)) * (10 - i);
@@ -35,7 +35,7 @@ angular.module('client-account-control')
 				rev = 0;
 			if (rev != parseInt(cpf.charAt(9)))
 				return false;
-			
+
 				add = 0;
 			for (i = 0; i < 10; i++)
 				add += parseInt(cpf.charAt(i)) * (11 - i);
@@ -55,10 +55,10 @@ angular.module('client-account-control')
 			})
 				.success(function (response) {
 					$scope.individualEntity = {};
-					$scope.message = 'Pessoa Física Atualizada com sucesso!';
+					$scope.message = 'Atualizado com sucesso';
 				})
 				.error(function (error) {
-					$scope.message = 'Não foi possível cadastrar o Pessoa Física';
+					$scope.message = 'Não foi possível atualizar';
 				});
 		};
 
@@ -70,10 +70,10 @@ angular.module('client-account-control')
 			})
 				.success(function (response) {
 					$scope.individualEntity = {};
-					$scope.message = 'Pessoa Física cadastrada com sucesso!';
+					$scope.message = 'Cadastrado com sucesso!';
 				})
 				.error(function (error) {
-					$scope.message = 'Não foi possível cadastrar Pessoa Física';
+					$scope.message = 'Não foi possível cadastrar';
 				});
 		};
 
@@ -81,10 +81,10 @@ angular.module('client-account-control')
 			$http.get(url + '/' + $routeParams.individualEntityId + responseExtension)
 				.success(function (response) {
 					$scope.individualEntity = response;
-					$scope.message = 'Pessoa Física obtida com sucesso';
+					$scope.message = 'Registro obtido com sucesso';
 				})
 				.error(function (error) {
-					$scope.message = 'Não foi possível obter a Pessoa Física';
+					$scope.message = 'Não foi possível obter o registro';
 				});
 		};
 
