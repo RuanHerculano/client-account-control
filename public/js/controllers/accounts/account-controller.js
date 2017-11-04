@@ -3,7 +3,7 @@ angular.module('client-account-control')
         $scope.account = {};
         $scope.corporateEntities = [];
         $scope.individualEntities = [];
-        $scope.accounts = [];
+        $scope.accounts = [];        
         $scope.message = '';
         var url = 'http://localhost:3000/accounts';
         var responseExtension = '.json';
@@ -12,7 +12,7 @@ angular.module('client-account-control')
             show();
         }
 
-        $scope.teste = function (id) {
+        $scope.clearEntity = function (id) {
             var select = document.getElementById(id);
             var length = select.options.length;
             select.options[0].selected = 'selected';

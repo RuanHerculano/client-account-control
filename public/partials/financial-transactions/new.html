@@ -16,8 +16,9 @@
 
         <div class="form-group">
             <label>Origem</label>
-            <select class="form-control" ng-value="origin.id" ng-model="financialTransaction.origin_id"
-            ng-options="origin.id as origin.name for origin in origins">
+            <select class="form-control"
+            ng-value="origin.id" ng-model="financialTransaction.origin_id"
+            ng-options="origin.id as origin.name for origin in origins" ng-click="getValidAccountsTransfer(origin.id);">
                 <option value=""></option>
             </select>
         </div>
@@ -25,7 +26,7 @@
         <div class="form-group">
             <label>Destino</label>
             <select class="form-control" ng-model="financialTransaction.destination_id"
-            ng-options="destination.id as destination.name for destination in destinations">
+            ng-options="destination.id as destination.name for destination in validAccountsTransfer">
                 <option value=""></option>
             </select>
         </div>

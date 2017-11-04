@@ -3,6 +3,7 @@ angular.module('client-account-control')
     $scope.financialTransaction = {};
     $scope.origins = [];
     $scope.destinations = [];
+    $scope.validAccountsTransfer = [];    
     $scope.message = '';
     var url = 'http://localhost:3000/financial_transactions';
     var responseExtension = '.json';
@@ -10,6 +11,22 @@ angular.module('client-account-control')
     if ($routeParams.financialTransactionId) {
         show();
     }
+
+    $scope.getValidAccountsTransfer = function () {
+        var id = $scope.financialTransaction.origin_id;
+        if (id === null) {
+            $scope.validAccountsTransfer = [];
+            return;
+        }
+
+        $http.get('http://localhost:3000/active_accounts_down_level/' + id + responseExtension)
+        .then(function (response) {
+            $scope.validAccountsTransfer = [];
+            $scope.validAccountsTransfer = response.data;
+        }).catch(function (error) {
+            $scope.message = 'Erro ao carregar lista';
+        });
+    };
 
     $scope.loadAccounts = function () {
         $http.get("http://localhost:3000/accounts" + responseExtension)

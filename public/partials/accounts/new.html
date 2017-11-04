@@ -16,7 +16,8 @@
 
         <div class="form-group">
             <label>Pessoa jurídica</label>
-            <select ng-click="teste('individual_entity');" id="corporate_entity" class="form-control" ng-model="account.corporate_entity_id"
+            <select ng-click="clearEntity('individual_entity');" id="corporate_entity"
+            class="form-control" ng-model="account.corporate_entity_id"
             ng-options="corporateEntity.id as corporateEntity.cnpj for corporateEntity in corporateEntities">
                 <option value=""></option>
             </select>
@@ -24,7 +25,7 @@
 
         <div class="form-group">
             <label>Pessoa física</label>
-            <select ng-click="teste('corporate_entity');" id="individual_entity" class="form-control" ng-model="account.individual_entity_id"
+            <select ng-click="clearEntity('corporate_entity');" id="individual_entity" class="form-control" ng-model="account.individual_entity_id"
             ng-options="individualEntity.id as individualEntity.cpf for individualEntity in individualEntities">
                 <option value=""></option>
             </select>
