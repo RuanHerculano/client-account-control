@@ -10,6 +10,10 @@ angular.module('client-account-control')
 		}
 
 		$scope.validateCPF = function () {
+			if ($scope.individualEntity.cpf == undefined) {
+				return false;
+			}
+
 			var cpf = $scope.individualEntity.cpf.toString();
 			cpf = cpf.replace(/[^\d]+/g, '');
 			if (cpf == '') return false;
@@ -81,6 +85,7 @@ angular.module('client-account-control')
 			$http.get(url + '/' + $routeParams.individualEntityId + responseExtension)
 				.success(function (response) {
 					$scope.individualEntity = response;
+					$scope.individualEntity.date_birth = new Date(response.date_birth);
 					$scope.message = 'Registro obtido com sucesso';
 				})
 				.error(function (error) {
@@ -90,7 +95,9 @@ angular.module('client-account-control')
 
 		function notReloadPageForm() {
 			$timeout(function () {
-				$scope.formulary.$submitted = false;
+				$scope.formulary.$setPristine();
+                $scope.formulary.$setUntouched();
+                $scope.formulary.$submitted = false;
 			});
 		};
 
@@ -101,7 +108,7 @@ angular.module('client-account-control')
 				} else {
 					create();
 				}
+				notReloadPageForm();
 			}
-
 		};
 	});

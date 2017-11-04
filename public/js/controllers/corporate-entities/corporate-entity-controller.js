@@ -10,6 +10,10 @@ angular.module('client-account-control')
 		}
 
         $scope.validateCNPJ = function () {
+            if ($scope.corporateEntity.cnpj == undefined) {
+				return false;
+			}
+            
             var cnpj = $scope.corporateEntity.cnpj.toString();
             cnpj = cnpj.replace(/[^\d]+/g,'');
 
@@ -103,6 +107,8 @@ angular.module('client-account-control')
 
         function notReloadPageForm() {
             $timeout(function () {
+                $scope.formulary.$setPristine();
+                $scope.formulary.$setUntouched();
                 $scope.formulary.$submitted = false;
             });
         };
@@ -114,6 +120,7 @@ angular.module('client-account-control')
                 } else {
                     create();
                 }
+                notReloadPageForm();
             }
         };
     });
