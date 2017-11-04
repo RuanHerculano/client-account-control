@@ -1,5 +1,5 @@
 angular.module('client-account-control')
-	.controller('IndividualEntityController', function ($scope, $http, $routeParams, $timeout) {
+	.controller('IndividualEntityController', function ($scope, $http, $routeParams, $timeout, $window) {
 		$scope.individualEntity = {};
 		$scope.message = '';
 		var url = 'http://localhost:3000/individual_entities';

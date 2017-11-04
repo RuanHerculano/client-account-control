@@ -94,7 +94,6 @@ angular.module('client-account-control')
                     $scope.message = 'Cadastrada com sucesso';
                 })
                 .error(function (error) {
-                    console.log(error);
                     if (error.cnpj[0] == 'duplicate cnpj') {
 						$scope.message = 'CNPJ já está cadastrado';						
 					} else {
