@@ -19,7 +19,7 @@ angular.module('client-account-control')
             return;
         }
 
-        $http.get('http://localhost:3000/active_accounts_down_level/' + id + responseExtension)
+        $http.get('http://localhost:3000/accounts/active_down_level/' + id + responseExtension)
         .then(function (response) {
             $scope.validAccountsTransfer = [];
             $scope.validAccountsTransfer = response.data;
@@ -29,7 +29,7 @@ angular.module('client-account-control')
     };
 
     $scope.loadAccounts = function () {
-        $http.get("http://localhost:3000/accounts" + responseExtension)
+        $http.get("http://localhost:3000/accounts/active" + responseExtension)
         .then(function (response) {
             $scope.origins = response.data;
             $scope.destinations = response.data;
