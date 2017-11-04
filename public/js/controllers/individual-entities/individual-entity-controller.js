@@ -77,7 +77,11 @@ angular.module('client-account-control')
 					$scope.message = 'Cadastrado com sucesso!';
 				})
 				.error(function (error) {
-					$scope.message = 'Não foi possível cadastrar';
+					if (error.cpf[0] == 'duplicate cpf') {
+						$scope.message = 'CPF já está cadastrado';						
+					} else {
+						$scope.message = 'Não foi possível cadastrar';	
+					}
 				});
 		};
 

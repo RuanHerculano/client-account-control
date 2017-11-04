@@ -72,10 +72,14 @@ angular.module('client-account-control')
             })
                 .success(function (response) {
                     $scope.corporateEntity = {};
-                    $scope.message = 'Registro atualizado com sucesso!';
+                    $scope.message = 'Atualizado com sucesso!';
                 })
                 .error(function (error) {
-                    $scope.message = 'Não foi possível atualizar registro';
+                    if (error.cnpj[0] == 'duplicate cnpj') {
+						$scope.message = 'CNPJ já está cadastrado';						
+					} else {
+						$scope.message = 'Não foi possível atualizar';	
+					}
                 });
         };
 
@@ -90,7 +94,12 @@ angular.module('client-account-control')
                     $scope.message = 'Cadastrada com sucesso';
                 })
                 .error(function (error) {
-                    $scope.message = 'Não foi possível cadastrar';
+                    console.log(error);
+                    if (error.cnpj[0] == 'duplicate cnpj') {
+						$scope.message = 'CNPJ já está cadastrado';						
+					} else {
+						$scope.message = 'Não foi possível cadastrar';	
+					}
                 });
         };
 
