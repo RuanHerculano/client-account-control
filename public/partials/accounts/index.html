@@ -10,6 +10,7 @@
     <thead>
         <tr>
             <th>Nome</th>
+            <th>Saldo</th>
             <th>Pessoa jurídica</th>
             <th>Pessoa física</th>
             <th>Conta associada</th>
@@ -19,6 +20,7 @@
     <tbody ng-repeat="account in accounts">
         <tr>
             <td>{{account.name}}</td>
+            <td>{{account.value}}</td>
             <td>{{account.corporate_entity.cnpj}}</td>
             <td>{{account.individual_entity.cpf}}</td>
             <td>{{account.account.name}}</td>
