@@ -37,6 +37,15 @@
             </select>
         </div>
 
+        <div class="form-group">
+            <label>Estado da conta</label>
+            <select ng-model="account.status" class="form-control">
+                <option value="active">Ativa</option>
+                <option value="locked">Bloqueada</option>
+                <option value="canceled">Cancelada</option>
+            </select>
+        </div>
+
         <button type="submit" class="btn btn-primary">
             Salvar
         </button>

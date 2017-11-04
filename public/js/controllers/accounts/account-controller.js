@@ -22,9 +22,8 @@ angular.module('client-account-control')
             $http.get(url + responseExtension)
             .then(function (response) {
                 $scope.accounts = filterAccounts(response.data);
-                $scope.message = 'Lista carregada com sucesso'
             }).catch(function (error) {
-                $scope.message = 'Erro ao carregar lista';
+                $scope.message = 'Erro ao carregar lista de contas';
             });
         };
 
@@ -32,9 +31,8 @@ angular.module('client-account-control')
             $http.get('http://localhost:3000/corporate_entities' + responseExtension)
                 .then(function (response) {
                     $scope.corporateEntities = response.data;
-                    $scope.message = 'Lista carregada com sucesso'
                 }).catch(function (error) {
-                    $scope.message = 'Erro ao carregar lista';
+                    $scope.message = 'Erro ao carregar lista de pessoas jurídicas';
                 });
         };
 
@@ -42,9 +40,8 @@ angular.module('client-account-control')
             $http.get('http://localhost:3000/individual_entities' + responseExtension)
                 .then(function (response) {
                     $scope.individualEntities = response.data;
-                    $scope.message = 'Lista carregada com sucesso.'
                 }).catch(function (error) {
-                    $scope.message = 'Erro ao carregar lista';
+                    $scope.message = 'Erro ao carregar lista de pessoas físicas';
                 });
         };
 
