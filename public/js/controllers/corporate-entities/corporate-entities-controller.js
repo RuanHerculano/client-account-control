@@ -12,23 +12,4 @@ angular.module('client-account-control')
             }).catch(function (error) {
                 $scope.message = 'Erro ao carregar lista';
             });
-
-        function destroy(corporateEntity) {
-            $http({
-                method: 'DELETE',
-                url: url + '/' + corporateEntity.id + responseExtension,
-            })
-                .success(function (response) {
-                    var corporateEntityIndex = $scope.corporateEntities.indexOf(corporateEntity);
-                    $scope.corporateEntities.splice(corporateEntityIndex, 1);
-                    $scope.message = 'Registro removido com sucesso';
-                })
-                .error(function (error) {
-                    $scope.message = 'Não foi possível remover este registro';
-                });
-        };
-
-        $scope.destroy = function (corporateEntity) {
-            destroy(corporateEntity);
-        };
     });

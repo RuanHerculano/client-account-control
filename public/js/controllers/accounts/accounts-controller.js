@@ -12,23 +12,4 @@ angular.module('client-account-control')
             }).catch(function (error) {
                 $scope.message = 'Erro ao carregar lista';
             });
-
-        function destroy(account) {
-            $http({
-                method: 'DELETE',
-                url: url + '/' + account.id + responseExtension,
-            })
-                .success(function (response) {
-                    var accountIndex = $scope.accounts.indexOf(account);
-                    $scope.accounts.splice(accountIndex, 1);
-                    $scope.message = 'Registro removido com sucesso!';
-                })
-                .error(function (error) {
-                    $scope.message = 'Não foi possível remover este Registro';
-                });
-        };
-
-        $scope.destroy = function (account) {
-            destroy(account);
-        };
     });
