@@ -39,21 +39,6 @@ angular.module('client-account-control')
         });
     };
 
-    function update() {
-        $http({
-            method: 'PUT',
-            url: url + '/' + $scope.financialTransaction.id + responseExtension,
-            data: $scope.financialTransaction,
-        })
-            .success(function (response) {
-                $scope.financialTransaction = {};
-                $scope.message = 'Atualizado com sucesso';
-            })
-            .error(function (error) {
-                $scope.message = 'Não foi possível atualizar';
-            });
-    };
-
     function create() {
         $http({
             method: 'POST',
@@ -65,7 +50,12 @@ angular.module('client-account-control')
                 $scope.message = 'Cadastrado com sucesso';
             })
             .error(function (error) {
-                $scope.message = 'Não foi possível cadastrar';
+                console.log(error);
+                if (error.value[0] === 'origin account has insufficient value for this transaction') {
+                    $scope.message = 'Saldo insuficiente na conta de origem';
+                } else {
+                    $scope.message = 'Não foi possível cadastrar';
+                }    
             });
     };
 
@@ -82,17 +72,15 @@ angular.module('client-account-control')
 
     function notReloadPageForm() {
         $timeout(function () {
+            $scope.formulary.$setPristine();
+            $scope.formulary.$setUntouched();
             $scope.formulary.$submitted = false;
         });
     };
 
     $scope.submit = function () {
         if ($scope.formulary.$valid) {
-            if ($scope.financialTransaction.id) {
-                update();
-            } else {
-                create();
-            }
+            create();
             notReloadPageForm();
         }
     };

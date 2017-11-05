@@ -15,7 +15,6 @@
         </div>
 
         <div class="form-group">
-            {{account.corporate_entity_id}}
             <label>Pessoa jurídica</label>
             <select ng-click="clearEntity('individual_entity');" id="corporate_entity"
             class="form-control" ng-model="account.corporate_entity_id"
@@ -28,7 +27,6 @@
         </div>
 
         <div class="form-group">
-            {{account.individual_entity_id}}
             <label>Pessoa física</label>
             <select ng-click="clearEntity('corporate_entity');" id="individual_entity"
             class="form-control" ng-model="account.individual_entity_id"
