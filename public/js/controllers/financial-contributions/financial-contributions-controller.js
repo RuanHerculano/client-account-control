@@ -16,7 +16,7 @@ angular.module('client-account-control')
 
         function reversal(financialContribution) {
             var code = prompt('Digite o código de aporte : ', 'Código');
-            if ($scope.financialContribution.code === null) {
+            if (code === 'Código' || code === null) {
                 return;
             }
 
