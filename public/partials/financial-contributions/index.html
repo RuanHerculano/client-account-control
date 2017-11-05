@@ -20,7 +20,18 @@
             <td>{{financialContribution.code}}</td>
             <td>{{financialContribution.value}}</td>
             <td>{{financialContribution.account_id}}</td>
-            <td>{{financialContribution.status}}</td>           
+            <td>{{financialContribution.status}}</td>
+            <td>
+                <!-- <form>
+                    <input class="btn btn-danger" type="button" value="Estornar"
+                    ng-if="financialContribution.status != 'reversaled'"
+                    ng-click="reversal(financialContribution);" />
+                </form> -->
+                <button ng-if="financialContribution.status != 'reversaled'"
+                ng-click="reversal(financialContribution)" class="btn btn-danger">
+                    Estornar
+                </button>
+            </td>           
         </tr>
     </tbody>
 </table>
