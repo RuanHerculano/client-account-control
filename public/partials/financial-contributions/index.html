@@ -22,11 +22,6 @@
             <td>{{financialContribution.account.name}}</td>
             <td>{{financialContribution.status}}</td>
             <td>
-                <!-- <form>
-                    <input class="btn btn-danger" type="button" value="Estornar"
-                    ng-if="financialContribution.status != 'reversaled'"
-                    ng-click="reversal(financialContribution);" />
-                </form> -->
                 <button ng-if="financialContribution.status != 'reversaled'"
                 ng-click="reversal(financialContribution)" class="btn btn-danger">
                     Estornar
