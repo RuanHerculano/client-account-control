@@ -14,8 +14,13 @@ angular.module('client-account-control')
     }
 
     $scope.clearEntity = function (id) {
+        if (id === 'individual_entity') {
+            $scope.account.individual_entity_id = null;
+        } else {
+            $scope.account.corporate_entity_id = null;
+        }
+
         var select = document.getElementById(id);
-        var length = select.options.length;
         select.options[0].selected = 'selected';
     };
 
